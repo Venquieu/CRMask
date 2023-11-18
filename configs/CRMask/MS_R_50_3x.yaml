@@ -1,0 +1,13 @@
+_BASE_: "Base-CRMask.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  RESNETS:
+    DEPTH: 50
+  FCOS:
+    USE_DEFORMABLE: False
+INPUT:
+  MIN_SIZE_TRAIN: (640, 672, 704, 736, 768, 800) #(800,) #
+SOLVER:
+  STEPS: (420000, 500000)
+  MAX_ITER: 540000
+OUTPUT_DIR: "output/crmask_MS_R_50_3x"
